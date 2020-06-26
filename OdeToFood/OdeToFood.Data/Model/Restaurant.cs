@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OdeToFood.Data.Model
 {
-    public class Restaurant : Identity
+    public class Restaurant : IdentityBase
     {
 
         public string Name { get; set; }

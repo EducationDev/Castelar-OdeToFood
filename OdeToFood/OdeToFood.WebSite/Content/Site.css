@@ -37,7 +37,7 @@ a {
 
     a:hover {
         text-decoration: none;
-        color: #C11414;
+        /*color: #C11414;*/
     }
 
 /************************** layout **************************/
@@ -120,6 +120,7 @@ a {
         font-style: italic;
         color: #FFFFFF;
     }
+
         #menu a:hover, #menu .active a {
             background: #C11212;
             color: #FFFFFF;
@@ -288,19 +289,54 @@ a {
         #footer a:hover {
             text-decoration: none;
         }
-    /*Tables*/
 
+.btn-input {
+    margin-left: 10px;
+    padding: 4px 4px;
+    border: none;
+    background: #C11212;
+    font-size: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.text-danger {
+    background: #C11212;
+    font-size: 10px;
+    color: #FFFFFF;
+}
+
+.form-group {
+    padding-top: 10px;
+}
+
+
+/*Tables*/
 .table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-}
-
-table {
     background-color: transparent;
-}
-
-table {
     border-collapse: collapse;
     border-spacing: 0;
+    width: 100%;
+    max-width: 100%;
 }
+
+    .table td, .table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .table tr:hover {
+        background-color: #ddd;
+    }
+
+    .table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #C11212;
+        color: #fafafa;
+    }
