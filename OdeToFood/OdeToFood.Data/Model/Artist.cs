@@ -19,15 +19,18 @@ namespace OdeToFood.Data.Model
         [DisplayName("Apellido")]
         [Required]
         public string LastName { get; set; }
+
         [Required]
         public string LifeSpan { get; set; }
 
         [DisplayName("País")]
         [Required]
         public string Country { get; set; }
+
         [DisplayName("Descripción")]
         [Required]
         public string Description { get; set; }
+
         [DisplayName("Total")]
         public int TotalProducts { get; set; }
 

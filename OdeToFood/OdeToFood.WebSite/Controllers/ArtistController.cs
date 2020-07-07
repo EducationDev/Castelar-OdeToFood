@@ -21,9 +21,6 @@ namespace OdeToFood.WebSite.Controllers
         public ActionResult Index()
         {
 
-            var i = 0;
-            var result = 15 / i;
-
             var list = db.Get();
             return View(list);
         }
@@ -38,7 +35,7 @@ namespace OdeToFood.WebSite.Controllers
         {
             this.CheckAuditPattern(artist, true);
             var list = db.ValidateModel(artist);
-            if(ModelIsValid(list))
+            if (ModelIsValid(list))
                 return View(artist);
             try
             {
@@ -59,6 +56,7 @@ namespace OdeToFood.WebSite.Controllers
         {
             if (id == null)
             {
+                Logger.Instance.LogException(new Exception("Artist HttpNotFound"));
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
@@ -80,6 +78,41 @@ namespace OdeToFood.WebSite.Controllers
             try
             {
                 db.Update(artist);
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception ex)
+            {
+                Logger.Instance.LogException(ex);
+                ViewBag.MessageDanger = ex.Message;
+                return View(artist);
+            }
+
+        }
+
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var artist = db.GetById(id.Value);
+            if (artist == null)
+            {
+                Logger.Instance.LogException(new Exception("Artist HttpNotFound"));
+                return HttpNotFound();
+            }
+            return View(artist);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Artist artist)
+        {
+            try
+            {
+                db.Delete(artist);
                 return RedirectToAction("Index");
 
             }

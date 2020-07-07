@@ -27,6 +27,11 @@ namespace OdeToFood.Data.Services
 
         /// DbSet Product se utiliza para representar una tabla.
         public virtual DbSet<Product> Product { get; set; }
+
+
+        public virtual DbSet<Cart> Cart { get; set; }
+        public virtual DbSet<CartItem> CartItem { get; set; }
+
         /// DbSet Product se utiliza para representar una tabla.
         public virtual DbSet<Error> Error { get; set; }
 

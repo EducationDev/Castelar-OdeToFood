@@ -9,6 +9,7 @@ namespace OdeToFood.WebSite.Services
 {
     public class Logger
     {
+
         private Logger()
         {
         }
@@ -34,12 +35,13 @@ namespace OdeToFood.WebSite.Services
                     UserAgent = HttpContext.Current.Request.UserAgent,
                     PathAndQuery = HttpContext.Current.Request.Url == null ? "" : HttpContext.Current.Request.Url.PathAndQuery,
                     HttpReferer = HttpContext.Current.Request.UrlReferrer == null ? "" : HttpContext.Current.Request.UrlReferrer.PathAndQuery,
-                    
+
                 };
-                var db = new BaseDataService<Error>() ;
+                var db = new BaseDataService<Error>();
                 db.Create(error);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
 
                 /* no hacer nada, o enviar un correo electrónico al webmaster */
             }

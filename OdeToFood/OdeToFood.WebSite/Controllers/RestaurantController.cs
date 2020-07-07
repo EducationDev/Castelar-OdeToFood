@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace OdeToFood.WebSite.Controllers
 {
-    [Authorize]
+    
     public class RestaurantController : Controller
     {
         readonly BaseDataService<Restaurant> db;
